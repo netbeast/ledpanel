@@ -2,7 +2,7 @@
   "name": "ledpanel",
   "version": "1.0.0",
   "description": "Control Adafruit 8x8 bicolor led Panel on the Raspberry Pi",
-  "main": "index.js",
+  "main": "beecolor.js",
   "dependencies": {
     "async": "^1.5.2",
     "i2c-bus": "^1.0.2"

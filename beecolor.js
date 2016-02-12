@@ -32,3 +32,4 @@ beecolor.clear = function (callback) {
 	})
 }
  
+ 
