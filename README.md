@@ -11,7 +11,7 @@ npm install beecolor
 
 **Load on browser or copy paste into your code**
 ```
-<script src="----"></script>
+<script src="https://github.com/netbeast/beecolor"></script>
 ```
 
 ##api
