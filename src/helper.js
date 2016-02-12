@@ -15,7 +15,6 @@ helper.register = function (done) {
 	async.series([
 		function(callback){
 			bus.writeByte(address, 0x21, 0x00, function(err) {
-				console.log('Registered 0x21')
 				if(err) return callback(err, null)
 				return callback(null)
 			})
@@ -23,7 +22,6 @@ helper.register = function (done) {
 		//Registering Led Panel
 		function(callback){
 			bus.writeByte(address, 0x81, 0x00, function(err) {
-				console.log('Registered 0x81')
 				if(err) return callback(err, null)
 				return callback(null)
 			})
@@ -31,7 +29,6 @@ helper.register = function (done) {
 		//Registering Led Panel
 		function(callback){
 			bus.writeByte(address, 0xEF, 0x00, function(err) {
-				console.log('Registered 0xEF')
 				if(err) return callback(err, null)
 				return callback(null)
 			})
