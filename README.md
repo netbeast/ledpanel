@@ -55,5 +55,5 @@ beecolor.matrix(matrix, function(err){
 
 beecolor.printPixel(0,0)
 
-beecolor.creal()
+beecolor.clear()
 ```
