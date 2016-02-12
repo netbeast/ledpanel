@@ -9,8 +9,8 @@ beecolor.matrix = function (matrix, callback) {
 		//Function to be executed here
 		async.apply(helper.matrix, matrix)
 	], function(err, results) { 
-		if(typeof callback !== 'function') throw err
-		callback(err)
+		if(typeof callback === 'function') return callback(err)
+		else if(err) throw err
 	})
 } 
 
@@ -20,15 +20,15 @@ beecolor.printPixel = function (x, y, callback) {
 		async.apply(helper.register),
 		async.apply(helper.printPixel(x,y))
 	], function(err, results) { 
-		if(typeof callback !== 'function') throw err
-		callback(err) 
+		if(typeof callback === 'function') return callback(err)
+		else if(err) throw err 
 	})
 }
 
 beecolor.clear = function (callback) {
 	helper.clear(function(err) {
-		if(typeof callback !== 'function') throw err
-		callback(err)
+		if(typeof callback === 'function') return callback(err)
+		else if(err) throw err
 	})
 }
  

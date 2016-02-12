@@ -64,8 +64,6 @@ helper.joinPrint = function (mat, callback) {
 		function () { return col <=7 },
 		function (done) {
 			col ++
-			console.log(col)
-			console.log(col<=7)
 			bus.writeByte(address, redCol[col-1], Number(columns[col-1]), function(err, none) {
 				return done(err)
 			})
@@ -77,7 +75,6 @@ helper.joinPrint = function (mat, callback) {
 }
 
 helper.join = function (mat) {
-	console.log('Join')
 	var columns = []
 	//Join al the elements of the same column on the same variable and change from binary to hex
 	for(var col = 0; col <= 7; col++) {
@@ -117,7 +114,6 @@ helper.printPixel= function (row, col, callback) {
 
 //This function clears the ledPanel
 helper.clear = function (callback) { 
-	console.log('Clear')
 	var col = 0
 
 	async.whilst(
