@@ -1,0 +1,29 @@
+{
+  "name": "ledpanel",
+  "version": "1.0.0",
+  "description": "Control Adafruit 8x8 bicolor led Panel on the Raspberry Pi",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "i2c-bus": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs",
+    "Javascript",
+    "Adafruit",
+    "Led",
+    "Bicolor",
+    "8x8",
+    "LED",
+    "matrix",
+    "backpack",
+    "Raspberry",
+    "RPI"
+  ],
+  "author": "luis@netbeast.co",
+  "license": "GPL-3.0"
+}
