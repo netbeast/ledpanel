@@ -9,11 +9,6 @@ beecolor allows you to control the Bicolor 8x8 LED matrix backpack from Adafruit
 npm install beecolor
 ```
 
-**Load on browser or copy paste into your code**
-```
-<script src="https://github.com/netbeast/beecolor"></script>
-```
-
 ##api
 
 Color the matrix
@@ -57,3 +52,12 @@ beecolor.printPixel(0,0)
 
 beecolor.clear()
 ```
+
+## Contact
+* Visit our site [https://netbeast.co](https://netbeast.co)
+* Mail us: staff [at] netbeast.co
+* Report a bug or enter discussion at [issues](https://github.com/netbeast/colorsys/issues)
+* Other resources: [Docs](https://github.com/netbeast/docs/wiki), Netbeast [API](https://github.com/netbeast/API)
+
+This repo is shared with :heart: from Netbeast IoT regular job translating
+messages from different devices and aggregating data.
