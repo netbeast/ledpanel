@@ -1,4 +1,4 @@
-var	helper = require('../src/helper.js')
+var	helper = require('./src/helper.js')
 var async = require('async')
 
 var beecolor = module.exports = {}
@@ -18,7 +18,7 @@ beecolor.matrix = function (matrix, callback) {
 beecolor.printPixel = function (x, y, callback) {
 	async.series([
 		async.apply(helper.register),
-		async.apply(printPixel(x,y))
+		async.apply(helper.printPixel(x,y))
 	], function(err, results) { 
 		if(typeof callback !== 'function') throw err
 		callback(err) 

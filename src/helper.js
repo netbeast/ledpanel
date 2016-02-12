@@ -57,18 +57,27 @@ helper.matrix = function (mat, done) {
 //This function prints the matrix on the ledPanel
 helper.joinPrint = function (mat, callback) {
 
-	columns = helper.join(mat)
-	//print oolumns
-	for (var col = 0; col <= 7; col++) {
-		bus.writeByteSync(address, redCol[col], Number(columns[col]), function(err, none) {
-			if(err) return callback(err)
-		})
-	}
-	return callback(null)
+	var columns = helper.join(mat)
+	var col = 0
+
+	async.whilst(
+		function () { return col <=7 },
+		function (done) {
+			col ++
+			console.log(col)
+			console.log(col<=7)
+			bus.writeByte(address, redCol[col-1], Number(columns[col-1]), function(err, none) {
+				return done(err)
+			})
+		},
+		function (err) {
+			return callback(err)
+		}
+	)
 }
 
 helper.join = function (mat) {
-
+	console.log('Join')
 	var columns = []
 	//Join al the elements of the same column on the same variable and change from binary to hex
 	for(var col = 0; col <= 7; col++) {
@@ -107,13 +116,23 @@ helper.printPixel= function (row, col, callback) {
 } 
 
 //This function clears the ledPanel
-helper.clear = function (callback) {
-	for (var col = 0; col<=7; col++){
-		bus.writeByte(address, redCol[col], 0x00, function(err) {
-			if(err) return callback(err)
-		})
-	}
-	return callback(null)
+helper.clear = function (callback) { 
+	console.log('Clear')
+	var col = 0
+
+	async.whilst(
+		function () { return col <=7 },
+		function (done) {
+			col ++
+			bus.writeByte(address, redCol[col-1], 0x00, function(err) {
+				return done(err)
+			})
+
+		},
+		function (err) {
+			return callback(err)
+		}
+	)
 }
 
 //This function reads the pixels already printed on the specified column of the ledpanel
@@ -128,7 +147,8 @@ helper.read = function (column, callback) {
 
 //This function checks the dimension of the matrix. It must be 8x8
 helper.checkDimension = function (mat, callback) {
-
+	
+	if(!mat) return callback(new Error('matrix not defined.'))
 	row = mat.length
 	if(row !== 8) return callback(new Error('Dimension of matrix must be 8x8'))
 	for (var i = 0; i <= 7; i++) {
