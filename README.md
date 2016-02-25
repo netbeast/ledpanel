@@ -1,12 +1,12 @@
-# beecolor
+# ledpanel
 
-beecolor allows you to control the Bicolor 8x8 LED matrix backpack from Adafruit
+ledpanel allows you to control the Bicolor 8x8 LED matrix backpack from Adafruit
 
 ## install
 
 **With npm**
 ```
-npm install beecolor
+npm install ledpanel
 ```
 
 ##api
@@ -14,25 +14,25 @@ npm install beecolor
 Color the matrix
 
 ```
-beecolor.matrix(matrix, callback)
+ledpanel.matrix(matrix, callback)
 ```
 
 Color one pixe
 
 ```
-beecolor.printPixel(x,y, callback)
+ledpanel.printPixel(x,y, callback)
 ```
 
 Clear all
 
 ```
-beecolor.clear(callback)
+ledpanel.clear(callback)
 ```
 
 ##examples
 
 ```
-var beecolor = require('beecolor')
+var ledpanel = require('ledpanel')
 
 var matrix = [[0, 0, 0, 0, 0, 0, 0, 0,],
 				[1, 1, 1, 1, 1, 1, 1, 1],
@@ -43,14 +43,14 @@ var matrix = [[0, 0, 0, 0, 0, 0, 0, 0,],
 				[1, 1, 1, 1, 1, 1, 1, 1],
 				[1, 1, 1, 1, 1, 1, 1, 1]]
 
-beecolor.matrix(matrix, function(err){
+ledpanel.matrix(matrix, function(err){
 	if(err) console.log(err)
 	console.log('Matrix Printed')
 })
 
-beecolor.printPixel(0,0)
+ledpanel.printPixel(0,0)
 
-beecolor.clear()
+ledpanel.clear()
 ```
 
 ## Contact

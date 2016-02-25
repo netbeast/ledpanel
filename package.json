@@ -1,8 +1,8 @@
 {
   "name": "ledpanel",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Control Adafruit 8x8 bicolor led Panel on the Raspberry Pi",
-  "main": "beecolor.js",
+  "main": "ledpanel.js",
   "dependencies": {
     "async": "^1.5.2",
     "i2c-bus": "^1.0.2"
@@ -16,7 +16,7 @@
     "Javascript",
     "Adafruit",
     "Led",
-    "Bicolor",
+    "LedPanel",
     "8x8",
     "LED",
     "matrix",
@@ -24,6 +24,10 @@
     "Raspberry",
     "RPI"
   ],
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/netbeast/ledpanel"
+  },
   "author": "luis@netbeast.co",
   "license": "GPL-3.0"
 }

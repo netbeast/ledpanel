@@ -4,6 +4,7 @@ var async = require('async')
  
 var address = 0x70 //Address of the Led Panel
 var redCol = [0x0f, 0x0d, 0x0b, 0x09, 0x07, 0x05, 0x03, 0x01]
+var redColAux = [0x0e, 0x0c, 0x0a, 0x08, 0x06, 0x04, 0x02, 0x00]
 var redRow = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80]
 var reset = [0x00]
 
@@ -34,7 +35,21 @@ helper.register = function (done) {
 			})
 	}], function(err, result){
 		if(err) return done(err)
-		return done(null)
+			var col = 0
+
+			async.whilst(
+				function () { return col <=7 },
+				function (done) {
+					col ++
+					bus.writeByte(address, redColAux[col-1], 0x00, function(err) {
+						return done(err)
+					})
+
+				},
+				function (err) {
+					return done(err)
+				}
+			)
 	})
 }
 
@@ -150,3 +165,33 @@ helper.checkDimension = function (mat, callback) {
 	return callback(null)
 }
 
+
+/*
+function test() {
+	async.series([
+		function(callback){
+			bus.writeByte(address, 0x21, 0x00, function(err) {
+				if(err) return callback(err, null)
+				return callback(null)
+			})
+		},
+		//Registering Led Panel
+		function(callback){
+			bus.writeByte(address, 0x81, 0x00, function(err) {
+				if(err) return callback(err, null)
+				return callback(null)
+			})
+		},
+		//Registering Led Panel
+		function(callback){
+			bus.writeByte(address, 0xEF, 0x00, function(err) {
+				if(err) return callback(err, null)
+				return callback(null)
+			})
+	}], function(err, result){
+		if(err) return done(err)
+		bus.writeByteSync(address, 0x0f, 0x00)
+	})
+}
+
+test()*/
